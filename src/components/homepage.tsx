@@ -755,22 +755,25 @@ const FlippyLandingPage: NextPage = () => {
       */}
 
         <AnimatedSection>
-          <Box
+         <Box
             as="section"
             id="flippy-logo"
             position="relative"
             bg="transparent"
+            w="100%"
           >
             <Image
               src="/assets/flippybanner.jpeg"
               alt="$FLIPPY Logo with animated light switches"
               objectFit="contain"
+              w="100%"
               display={{ base: "none", md: "block" }}
             />
             <Image
               src="/assets/flippybanner.jpeg"
               alt="$FLIPPY Logo with cartoon light switch character"
               objectFit="contain"
+              w="100%"
               display={{ base: "block", md: "none" }}
             />
           </Box>
