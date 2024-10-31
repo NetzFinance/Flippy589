@@ -24,8 +24,10 @@
     "react-hook-form": "^7.52.1",
     "react-icons": "^5.2.1",
     "react-intersection-observer": "^9.13.1",
+    "react-qr-code": "^2.0.15",
     "recharts": "^2.12.7",
-    "resend": "^4.0.0"
+    "resend": "^4.0.0",
+    "xrpl": "^4.0.0"
   },
   "devDependencies": {
     "@types/node": "^20",
