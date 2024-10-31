@@ -4,87 +4,33 @@ import { Providers } from "@/app/providers";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://pepz.io"),
-  title: { default: "PEPEZ Defi App", template: "%s | PEPZ" },
+  metadataBase: new URL("https://www.flippytheswitch.com"),
+  title: { default: "Flippy dApp", template: "%s | FLIPPY" },
   description:
-    "PEPEZ Official Site for @pepemainnetz Follow our twitter @pepemainnetz! Our New cross chain NFTZ have just launched! Grab one now from the site!",
+    "",
   twitter: {
     card: "summary_large_image",
-    creator: "@pepemainnetz",
-    site: "@pepemainnetz",
-    creatorId: "@pepemainnetz",
-    title: "Pepez",
+    creator: "@flippy589",
+    site: "@flippy589",
+    creatorId: "@flippy589",
+    title: "Flippy The Switch",
     images: [
       {
         url: "/logo.png",
-        alt: "@pepemainnetz",
-        username: "@pepemainnetz",
+        alt: "@flippy589",
+        username: "@flippy589",
         height: 500,
         width: 500,
-        secureUrl: "https://pepz.io/logo.png",
+        secureUrl: "https://flippytheswitch.com/logo.png",
       },
     ],
     description:
-      "PEPEZ Official Site for @pepemainnetz Follow our twitter @pepemainnetz! Our New cross chain NFTZ have just launched! Grab one now from the site!",
-    siteId: "@pepemainnetz",
+      "",
+    siteId: "@flippy589",
   },
-  appleWebApp: {
-    capable: true,
-    title: "Pepe Mainnetz",
-    statusBarStyle: "black-translucent",
-    startupImage: {
-      url: "https://pepz.io/logo.png",
-      media:
-        "(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)",
-    },
-  },
-  applicationName: "PEPEZ Defi App",
+ 
+  applicationName: "Flippy dApp",
   category: "Finance",
-  appLinks: {
-    ios: {
-      url: "https://pepz.io",
-      app_name: "Pepez Defi App",
-      app_store_id: "",
-    },
-    android: {
-      package: "com.pepz.io",
-      url: "https://pepz.app",
-      app_name: "Pepez Defi App",
-    },
-    ipad: {
-      url: "https://pepz.io",
-      app_name: "Pepez Defi App",
-      app_store_id: "",
-    },
-    iphone: {
-      url: "https://pepz.io",
-      app_name: "Pepez Defi App",
-      app_store_id: "",
-    },
-    web: {
-      url: "https://pepz.io",
-      should_fallback: true,
-    },
-    windows: {
-      url: "https://pepz.io",
-      app_name: "Pepez Defi App",
-      app_id: "",
-    },
-    windows_phone: {
-      url: "https://pepz.io",
-      app_name: "Pepez Defi App",
-      app_id: "",
-    },
-    windows_universal: {
-      url: "https://pepz.io",
-      app_name: "Pepez Defi App",
-      app_id: "",
-    },
-  },
-  bookmarks: "https://pepz.io/bookmarks",
-  assets: "https://pepz.io/assets",
-  authors: [{ name: "Pepez Team", url: "https://pepz.io" }],
-  generator: "Next.js",
   keywords: [
     "steakhouse",
     "defi",
@@ -144,31 +90,24 @@ export const metadata: Metadata = {
 
   openGraph: {
     type: "website",
-    url: "https://pepz.io",
-    title: "Pepez Defi App",
+    url: "https://www.flippytheswitch.com",
+    title: "Flippy dApp",
     description:
-      "PEPEZ Official Site for @pepemainnetz Follow our twitter @pepemainnetz! Our New cross chain NFTZ have just launched! Grab one now from the site!",
-    siteName: "Pepez",
+      "",
+    siteName: "Flippy The Switch",
     images: [
       {
-        url: "https://pepz.io/logo.png",
-        alt: "@pepemainnetz",
-        username: "@pepemainnetz",
+        url: "https://flippytheswitch.com/logo.png",
+        alt: "@flippy589",
+        username: "@flippy589",
         height: 500,
         width: 500,
-        secureUrl: "https://pepz.io/logo.png",
+        secureUrl: "https://flippytheswitch.com/logo.png",
         type: "image/png",
       },
     ],
   },
-  creator: "Pepez Team",
-  icons: [
-    { rel: "icon", url: "https://pepz.io/icon.png" },
-    { rel: "apple-touch-icon", url: "https://pepz.io/apple-icon.png" },
-    { rel: "manifest", url: "https://pepz.io/manifest.json" },
-    { rel: "mask-icon", url: "https://pepz.io/mask-icon.svg" },
-    { rel: "shortcut icon", url: "https://pepz.io/favicon.ico" },
-  ],
+  creator: "Flippy Team",
 };
 
 export default function RootLayout({
