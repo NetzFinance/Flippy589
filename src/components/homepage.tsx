@@ -449,7 +449,7 @@ const FlippyLandingPage: NextPage = () => {
   }, []);
 
   const copyToClipboard = async () => {
-    const contractAddress = "rnwt54maWEQbyRTteadTjyGJrdRWqWjG9m";
+    const contractAddress = "rsENFmELvj92orrCKTkDTug53MzwsB7zBd";
     try {
       await navigator.clipboard.writeText(contractAddress);
       setIsCopied(true);
@@ -567,7 +567,7 @@ const FlippyLandingPage: NextPage = () => {
                       rightIcon={isCopied ? <FaCheck /> : <FaCopy />}
                     >
                       <Text fontFamily="mono" mr={2}>
-                        rnwt54maWEQbyRTteadTjyGJrdRWqWjG9m
+                        rsENFmELvj92orrCKTkDTug53MzwsB7zBd
                       </Text>
                     </Button>
                   </Tooltip>
