@@ -23,7 +23,7 @@ const textOptions = [
 	"And know \nFlippy is the ticker"
 ]
 
-const colorOptions = [
+export const colorOptions = [
 	'FFD369', // yellow
 	'E84545', // red
 	'0D92F4', // blue
@@ -116,11 +116,11 @@ export const HeroSection = () => {
 	}
 	
 	const playFlippyGif = () => {
-		document.getElementById("flippy").src="https://assets.codepen.io/9650121/flippy-click-6.gif";
+		document.getElementById("flippy").src="/assets/flippy-click-6.gif";
 	}
 	
 	const stopFlippyGif = () => {
-		document.getElementById("flippy").src="https://assets.codepen.io/9650121/flippy-click-6.png";
+		document.getElementById("flippy").src="/assets/flippy-click-6.png";
 	}
 	
 	
@@ -145,7 +145,7 @@ export const HeroSection = () => {
 
     // was seeing some weirdness before the css was loaded/ready
     // just give 250ms for stuff to load before displaying it
-    setTimeout(() => { setLoading(false) }, 250)
+    setTimeout(() => { setLoading(false) }, 150)
 	}, [])
 	
 	useEffect(() => {
@@ -209,8 +209,8 @@ export const HeroSection = () => {
     <div class="white-bg">
       <div class="main-hero" style={{backgroundColor: `#${color}44`}}>
         <div class="content-container" style={{visibility: loading ? 'hidden' : 'visible'}}>
-          <audio id="audio" src="https://assets.codepen.io/9650121/switch-2.mp3"></audio>
-          <audio loop id="audio2" src="https://assets.codepen.io/9650121/flip-the-switch-2.mp3"></audio>
+          <audio id="audio" src="/assets/switch-2.mp3"></audio>
+          <audio loop id="audio2" src="/assets/flip-the-switch-2.mp3"></audio>
           <h1 class="flippy-text" onClick={handleClick}>
             {text}
             {
@@ -227,16 +227,16 @@ export const HeroSection = () => {
               <BulbSvg />
               <span class={!!colorCounter ? "buy-text show" : "buy-text"}>Buy</span>
             </div>
-            <img class="wire-img" src="https://assets.codepen.io/9650121/wire-1_1.png" alt="wire-img" />
+            <img class="wire-img" src="/assets/wire-1_1.png" alt="wire-img" />
           </div>
             <img
               onClick={handleClick}
               className="flippy-img"
               id="flippy"
-              src="https://assets.codepen.io/9650121/flippy-click-6.png"
+              src="/assets/flippy-click-6.png"
               alt="flippy-img"
               />
-            <img class="wire-img-2" src="https://assets.codepen.io/9650121/wire-3.png" />
+            <img class="wire-img-2" src="/assets/wire-3.png" />
           { (textIndex == (textOptions.length - 1)) &&
             <div class="buy-flippy pulse-button" style={{backgroundColor: `#${color}`}} onClick={handleBuyClick}>
               Buy $Flippy
@@ -244,7 +244,7 @@ export const HeroSection = () => {
           }
           <img
             class="sound-icon"
-            src={mute ? "https://assets.codepen.io/9650121/mute-icon.png" : "https://assets.codepen.io/9650121/sound-icon.png"}
+            src={mute ? "/assets/mute-icon.png" : "/assets/sound-icon.png"}
             alt="mute-icon"
             onClick={() => {
               localStorage.setItem('mute', !mute)

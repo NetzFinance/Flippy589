@@ -43,7 +43,7 @@ import {
 import { FaX } from "react-icons/fa6";
 import { HiMenu } from "react-icons/hi";
 import { useInView } from "react-intersection-observer";
-import { HeroSection } from './HeroSection'
+import { HeroSection, colorOptions } from './HeroSection'
 
 // Sample data for the chart
 const data = [
@@ -53,6 +53,55 @@ const data = [
   { name: "Apr", value: 800 },
   { name: "May", value: 1000 },
 ];
+
+const reviews = [
+  {
+    quote:
+      "You should definitely check out $FLIPPY one of the most young and exciting xrp memecoin out there.",
+    author: "WHALEDOT 🐋 鲸点",
+    link: 'https://x.com/whaledotcalls/status/1854901839839338865'
+  },
+  {
+    quote:
+      "$FLIPPY first coin listed on coinmarketcap. It has the lore and art that every other coin would be dying to have. It's a no-brainer.",
+    author: "Kingo",
+    link: 'https://x.com/lonwoskeng/status/1854891108792406323'
+  },
+  {
+    quote:
+      "My top 3 coins with the best chances of success due to the quality of their memes are: $BERT ~ $KCUP ~ $FLIPPY. This is strictly based on art, originality, and how “memeable” they are.",
+    author: "XRP Memes 💎",
+    link: 'https://x.com/eksrp123/status/1854781214411956726'
+  },
+  {
+    quote:
+      "$FLIPPY is running. I think I may have called another banger! Super bullish!!!! ",
+    author: "Doctor Cryptoman",
+    link: 'https://x.com/Doctorcryptoman/status/1854319392491815357'
+  },
+  {
+    quote:
+      "Please check out at @CryptosRichboy $FLIPPY SATURDAY NIGHT LIVE!!! HOT XRP PLAY!!!",
+    author: "K00LRav",
+    link: 'https://x.com/K00LRav/status/1852914894326108370'
+  },
+  {
+    quote:
+      "$FLIPPY is one of the few non-rug pools with fair launch and organic growth on the XRPL. \n$FLIPPY has the stars 🌟 in alignment for sure… have you flipped the switch yet? #XRP #memecoin",
+    author: "BronzEmerald",
+    link: 'https://x.com/Bronz_Emerald/status/1852757827170783393'
+  },
+  {
+    quote:
+      "$FLIPPY THE SWITCH will be the blue chip meme of the XRPL, It's flipping EVERYTHING! 🔥",
+    author: "FlipFiend",
+  },
+  {
+    quote:
+      "$Flippy is an original meme that doesn't exists on any other chains that every $XRP holder can relate to - that flip of the switch moment! 💎",
+    author: "SparkPlugger",
+  },
+]
 
 const AnimatedSection: React.FC<{ children: React.ReactNode }> = ({
   children,
@@ -358,9 +407,10 @@ const Navbar = () => {
           </ChakraLink>
           <ChakraLink
             as={NextLink}
-            href="#chart"
+            href="https://firstledger.net/token/rsENFmELvj92orrCKTkDTug53MzwsB7zBd/24464C4950505900000000000000000000000000"
             color="blue.400"
             _hover={{ color: "blue.200" }}
+            target="_blank"
           >
             Chart
           </ChakraLink>
@@ -401,9 +451,10 @@ const Navbar = () => {
             </ChakraLink>
             <ChakraLink
               as={NextLink}
-              href="#chart"
+              href="https://firstledger.net/token/rsENFmELvj92orrCKTkDTug53MzwsB7zBd/24464C4950505900000000000000000000000000"
               color="blue.400"
               _hover={{ color: "blue.200" }}
+              target="_blank"
             >
               Chart
             </ChakraLink>
@@ -430,23 +481,24 @@ const Navbar = () => {
   );
 };
 const FlippyLandingPage: NextPage = () => {
-  const [isFlipped, setIsFlipped] = useState(false);
+  const [flippyIndex, setFlippyIndex] = useState(1);
   const [isCopied, setIsCopied] = useState(false);
   const toast = useToast();
   const { isOpen, onOpen, onClose } = useDisclosure();
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      const newIndex = Math.floor(Math.random() * reviews.length);
+      setFlippyIndex(newIndex)
+    }, 2800);
+    return () => clearInterval(timer);
+  }, []);
 
   useEffect(() => {
     const script = document.createElement("script");
     script.src = "https://platform.twitter.com/widgets.js";
     script.async = true;
     document.body.appendChild(script);
-  }, []);
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setIsFlipped((prev) => !prev);
-    }, 3000);
-    return () => clearInterval(timer);
   }, []);
 
   const copyToClipboard = async () => {
@@ -668,6 +720,7 @@ const FlippyLandingPage: NextPage = () => {
               flexDirection="column"
               alignItems="center"
               justifyContent="center"
+              position="relative"
             >
               <Heading
                 as="h2"
@@ -679,33 +732,39 @@ const FlippyLandingPage: NextPage = () => {
               >
                 Who is $FLIPPY?
               </Heading>
-              <Grid templateColumns={{ md: "repeat(2, 1fr)" }} gap={8}>
+              <Image
+                src="/assets/flippy-rainbow-trans.png"
+                alt="$FLIPPY Logo rainbow"
+                objectFit="contain"
+                w={["250px", "400px"]}
+              />
+              <Grid mt="30px" templateColumns={{ md: "repeat(2, 1fr)" }} gap={[4, 8]}>
                 <VStack align="start" spacing={4}>
-                  <Text color="blue.400">
-                    $FLIPPY is the hottest sensation in the XRPL ecosystem,
+                  <Text color="blue.400" fontSize={["xl"]}>
+                    The Switch that doesn't turn off – the hero we
+                    didn't ask for, but the one we deserve.
+                  </Text>
+                  <Text color="blue.400" fontSize={["xl"]}>
+                    $FLIPPY is an original meme coin in the XRPL ecosystem,
                     bringing fun and excitement to the world of
                     cryptocurrencies. With our unique approach to memecoins,
-                    we're flipping the script on traditional memefi with
+                    we're flipping the script on traditional memefi via organic
                     community engagement, tokens burns, giveaways, contests &
                     more!
                   </Text>
-                  <Text color="blue.400">
+                  <Text color="blue.400" fontSize={["xl"]}>
                     Launch Date: 10/27/2024, Token Supply: 865,000
-                  </Text>
-                  <Text color="blue.400">
-                    Flippy is the Switch That Doesn't Turn Off – the hero we
-                    didn't ask for, but the one we deserve.
                   </Text>
                 </VStack>
                 <VStack align="start" spacing={4}>
-                  <Text color="blue.400">
+                  <Text color="blue.400" fontSize={["xl"]}>
                     Flippy's always on, unlike the one David holds. Need to turn
                     off the lights before bed? Too bad! Flippy's got other
                     plans. Think of Flippy as your over-enthusiastic XRPL friend
-                    who's always ready to party... even when you're not. 589+
+                    who's always ready to party ... even when you're not. 589+
                     EOY
                   </Text>
-                  <Text color="blue.400">
+                  <Text color="blue.400" fontSize={["xl"]}>
                     We had plans to Airdrop 15% to any holder who didn't sell to
                     1m mc. We put out a community vote, and decided it was best
                     for the project to burn 99% of the dev supply. This truly
@@ -767,18 +826,10 @@ const FlippyLandingPage: NextPage = () => {
             w="100%"
           >
             <Image
-              src="/assets/flippybanner.jpeg"
+              src="/assets/flippy-banner-33.jpg"
               alt="$FLIPPY Logo with animated light switches"
-              objectFit="contain"
+              objectFit={["cover", "contain"]}
               w="100%"
-              display={{ base: "none", md: "block" }}
-            />
-            <Image
-              src="/assets/flippybanner.jpeg"
-              alt="$FLIPPY Logo with cartoon light switch character"
-              objectFit="contain"
-              w="100%"
-              display={{ base: "block", md: "none" }}
             />
           </Box>
         </AnimatedSection>
@@ -790,7 +841,8 @@ const FlippyLandingPage: NextPage = () => {
                 as="h2"
                 fontSize={["2xl", "3xl"]}
                 fontWeight="bold"
-                mb={8}
+                pt={'30px'}
+                mb={'30px'}
                 textAlign="center"
                 color="blue.300"
               >
@@ -800,69 +852,30 @@ const FlippyLandingPage: NextPage = () => {
                 templateColumns={{ base: "1fr", md: "repeat(2, 1fr)" }}
                 gap={8}
               >
-                {[
-                  {
-                    quote:
-                      "Sold all my floppies for $FLIPPY & every dip it always FLIP 🔄!",
-                    author: "Flip Flop Fanatic",
-                    title: "Former Holder of Tokens That Flopped",
-                  },
-                  {
-                    quote:
-                      "$FLIPPY THE SWITCH will be the blue chip meme of the XRPL, It's flipping EVERYTHING! 🔥",
-                    author: "FlipFiend",
-                    title: "Can't Stop, Won't Stop Flipping",
-                  },
-                  {
-                    quote:
-                      "$DROP not a flop but $FLIPPY don't stop! Had to drip some $DROP in the $FLIPPY cuz it's HOT. 🤑🥵",
-                    author: "Switcheroo",
-                    title: "Former $DROP Only Holder",
-                  },
-                  {
-                    quote:
-                      "$Flippy is an original meme that doesn't exists on any other chains that every $XRP holder can relate to: that flip of the switch moment! 💎",
-                    author: "SparkPlugger",
-                    title: "Stay Ready To Ignite The Switch",
-                  },
-                ].map((testimonial, i) => (
-                  <Card
-                    key={i}
-                    bgGradient="linear(to-br, blue.50, yellow.50)"
-                    position="relative"
-                    h="100%"
-                    alignContent={"space-between"}
-                  >
-                    <CardBody p={6} h="100%" alignContent={"space-between"}>
-                      <Text color="blue.400" mb={4}>
-                        "{testimonial.quote}"
-                      </Text>
-                      <Text fontWeight="bold" color="blue.300">
-                        {testimonial.author}
-                      </Text>
-                      <Text fontSize="sm" color="blue.400">
-                        {testimonial.title}
-                      </Text>
-                      <Box position="absolute" bottom={2} right={2}>
-                        <motion.div
-                          animate={{ rotateY: isFlipped ? 180 : 0 }}
-                          transition={{ duration: 0.6 }}
-                          style={{ perspective: 1000 }}
-                        >
-                          <Image
-                            src="/logo.png"
-                            alt="$FLIPPY Logo"
-                            width={8}
-                            height={8}
-                            objectFit="cover"
-                            borderRadius="full"
-                          />
-                        </motion.div>
-                      </Box>
-                    </CardBody>
-                  </Card>
+                {reviews.map((review, i) => (
+                  <ReviewCard key={i} review={review} index={i} flippyIndex={flippyIndex}  />
                 ))}
               </Grid>
+              <Heading
+                as="h2"
+                fontSize={["2xl", "3xl"]}
+                fontWeight="bold"
+                mt={'50px'}
+                textAlign="center"
+                color="blue.300"
+              >
+                Want to Be Featured?
+              </Heading>
+              <Heading
+                fontSize={["xl"]}
+                fontWeight="bold"
+                mt={'15px'}
+                pb={'20px'}
+                textAlign="center"
+                color="blue.300"
+              >
+                Post something about $FLIPPY on X, tag @flippy589, and share it in our Telegram
+              </Heading>
             </Container>
           </Box>
         </AnimatedSection>
@@ -1104,5 +1117,62 @@ const FlippyLandingPage: NextPage = () => {
     </Flex>
   );
 };
+
+const ReviewCard = ({review, index, flippyIndex}: any) => {
+  return(
+    <Card
+      bgGradient="linear(to-br, blue.50, yellow.50)"
+      position="relative"
+      h="100%"
+      alignContent={"space-between"}
+      onClick={() => {
+        if (review.link) {
+          window?.open(review.link, '_blank')?.focus();
+        }
+      }}
+      className="card-body"
+    >
+      <CardBody
+        p={6}
+        h="100%"
+        alignContent={"space-between"}
+        style={{
+          background: `#${colorOptions[index]}44`,
+          borderRadius: '0.375rem',
+          cursor: review.link ? 'pointer' : 'normal'
+        }}
+      >  
+      {/* color: #2e384d; */}
+        <Text color="#2e384d" mb={4} pb={4} maxWidth={['80%', '90%']}>
+          "{review.quote}"
+        </Text>
+        <Text
+        fontWeight="bold"
+        color="#2e384d"
+        position={['relative', 'absolute']}
+        left={[0, '24px']}
+        bottom={[0, 5]}
+        >
+          {review.author}
+        </Text>
+        {
+          index == flippyIndex &&
+          <Box
+            position="absolute"
+            bottom={3} right={3}
+            className="flippy-gif-small"
+          >
+            <Image
+              src="/assets/flippy-click-6.gif"
+              alt="$FLIPPY Logo"
+              width={10}
+              objectFit="cover"
+            />
+          </Box>
+        }
+      </CardBody>
+    </Card>
+  )
+}
 
 export default FlippyLandingPage;

@@ -35,8 +35,9 @@
   }
 
   .flippy-text {
-    font-size: 69px;
+    font-size: 60px;
     padding: 69px 0px 0px 0px;
+    line-height: 69px;
     position: absolute;
     text-align: left;
     left: 69px;
@@ -49,7 +50,7 @@
   .click-me {
     font-size: 23px;
     position: relative;
-    top: -60px;
+    top: -20px;
   }
 
   .flippy-img {
@@ -276,4 +277,12 @@
   100% {
     transform: scale(1) translateY(0px);
   }
+}
+
+.card-body {
+  transition: all .33s;
+}
+
+.card-body:hover {
+  transform: scale(1.033);
 }
