@@ -43,6 +43,7 @@ import {
 import { FaX } from "react-icons/fa6";
 import { HiMenu } from "react-icons/hi";
 import { useInView } from "react-intersection-observer";
+import { HeroSection } from './HeroSection'
 
 // Sample data for the chart
 const data = [
@@ -486,7 +487,10 @@ const FlippyLandingPage: NextPage = () => {
     <Flex minHeight="100vh" flexDirection="column" bg="black" color="white">
       <Navbar />
 
-      <Box width="full" h="100%" position="relative" overflow="hidden">
+      <HeroSection />
+
+      {/* previous hero section with Flippy on the moon & FL iframe */}
+      {/* <Box width="full" h="100%" position="relative" overflow="hidden">
         <Box
           position="relative"
           display="flex"
@@ -644,7 +648,7 @@ const FlippyLandingPage: NextPage = () => {
             </motion.div>
           </VStack>
         </Box>
-      </Box>
+      </Box> */}
 
       <Box as="main" flexGrow={1}>
         <AnimatedSection>

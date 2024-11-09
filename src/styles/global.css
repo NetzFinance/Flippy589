@@ -1,0 +1,279 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+
+.lobster-regular {
+  font-family: "Lobster", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.white-bg {
+  background-color: white;
+}
+
+.main-hero {
+  background: #fff;
+  margin: 0 auto;
+  position: relative;
+  height: calc(100vh - 64px);
+  max-height: 900px;
+  text-align: center;
+  transition: all 0.5s;
+  color: #2e384d;
+  font-family: "Lobster", sans-serif !important;
+  font-weight: 400;
+  font-style: normal;
+  width: 100%;
+
+  .content-container {
+    max-width: 1200px;
+    position: relative;
+    height: calc(100vh - 64px);
+    max-height: 900px;
+    margin: auto;
+    overflow: hidden;
+    width: 100%;
+  }
+
+  .flippy-text {
+    font-size: 69px;
+    padding: 69px 0px 0px 0px;
+    position: absolute;
+    text-align: left;
+    left: 69px;
+    z-index: 369;
+    max-width: 600px;
+    white-space: pre-wrap;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .click-me {
+    font-size: 23px;
+    position: relative;
+    top: -60px;
+  }
+
+  .flippy-img {
+    width: 269px;
+    position: absolute;
+    bottom: -9px;
+    left: 33px;
+    right: 0;
+    cursor: pointer;
+    z-index: 13333;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .bulb-svg {
+    position: absolute;
+    right: 10%;
+    top: 69px;
+    z-index: 169;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .bulb-svg svg {
+    width: 269px;
+    transition: all 0.5s;
+    z-index: 16969;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .bulb-svg:hover .normal svg,
+  .bulb-svg:hover .normal .buy-text {
+    transform: scale(1.1) translateY(-13px);
+    opacity: 1;
+  }
+
+  .wire-img {
+    position: absolute;
+    right: 3px;
+    top: 280px;
+    width: 133px;
+    z-index: 100;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .wire-img-2 {
+    position: absolute;
+    left: 150px;
+    bottom: 0px;
+    width: 13px;
+    z-index: 13;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .buy-flippy {
+    display: inline-block;
+    padding: 10px 45px;
+    font-size: 33px;
+    border-radius: 8px;
+    position: absolute;
+    bottom: 100px;
+    left: 0;
+    right: 0;
+    max-width: 300px;
+    margin: auto;
+    z-index: 333369;
+    color: white;
+    cursor: pointer;
+    white-space: no-wrap;
+    animation: pulse 1.125s infinite;
+    border: 3px solid black;
+    transition: all 0.5s;
+  }
+
+  .pulse {
+    animation: pulse2 1.125s infinite;
+  }
+
+  .buy-text {
+    color: white;
+    font-size: 33px;
+    position: absolute;
+    top: 42%;
+    left: 0;
+    right: 0;
+    margin: auto;
+    z-index: 13333;
+    transition: all 0.5s;
+    opacity: 0;
+  }
+
+  .buy-text.show {
+    opacity: 1;
+  }
+
+  .sound-icon {
+    width: 33px;
+    position: absolute;
+    bottom: 8px;
+    right: 8px;
+    cursor: pointer;
+    z-index: 3333;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  /* // mobile styles */
+  @media (max-width: 700px) {
+    .flippy-text {
+      font-size: 42px;
+      padding: 42px 20px 0px 20px;
+      position: absolute;
+      text-align: center;
+      left: 0;
+      right: 0;
+      max-width: 600px;
+    }
+
+    .click-me {
+      font-size: 23px;
+      position: relative;
+      top: -5px;
+    }
+
+    .flippy-img {
+      width: 233px;
+      left: 13px;
+      cursor: pointer;
+      z-index: 13333;
+    }
+
+    .bulb-svg {
+      position: absolute;
+      right: 5%;
+      top: 169px;
+    }
+
+    .bulb-svg svg {
+      width: 200px;
+    }
+
+    .wire-img {
+      position: absolute;
+      top: 208px;
+      right: 3px;
+      bottom: 0px;
+      width: 100px;
+      z-index: 100;
+    }
+
+    .wire-img-2 {
+      position: absolute;
+      left: 113px;
+      bottom: 0px;
+      width: 13px;
+      z-index: 13
+    }
+
+    .buy-flippy {
+      display: inline-block;
+      padding: 10px 20px;
+      font-size: 36px;
+      border-radius: 8px;
+      position: absolute;
+      left: 0px;
+      max-width: 300px;
+      z-index: 333369;
+      color: white;
+      cursor: pointer;
+    }
+
+    .buy-text {
+      opacity: 1;
+    }
+
+    .bulb-svg:hover .normal svg,
+    .bulb-svg:hover .normal .buy-text {
+      transform: none;
+      opacity: 1;
+    }
+
+    .pulse {
+      animation: pulse3 1.125s infinite;
+    }
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.1);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes pulse2 {
+  0% {
+    transform: scale(1) translateY(0px);
+  }
+
+  50% {
+    transform: scale(1.1) translateY(-13px);
+  }
+
+  100% {
+    transform: scale(1) translateY(0px);
+  }
+}
+
+@keyframes pulse3 {
+  0% {
+    transform: scale(1) translateY(0px);
+  }
+
+  50% {
+    transform: scale(1.1) translateY(-10px);
+  }
+
+  100% {
+    transform: scale(1) translateY(0px);
+  }
+}
