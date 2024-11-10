@@ -2,6 +2,7 @@ import { NextHead } from "@/components/NextHead";
 import { textFont } from "@/consts/chakra";
 import { Providers } from "@/app/providers";
 import type { Metadata } from "next";
+import '../styles/global.css';
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.flippytheswitch.com"),
