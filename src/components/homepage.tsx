@@ -736,7 +736,7 @@ const FlippyLandingPage: NextPage = () => {
                 src="/assets/flippy-rainbow-trans.png"
                 alt="$FLIPPY Logo rainbow"
                 objectFit="contain"
-                w={["250px", "400px"]}
+                w={["calc(100% - 33px)", "400px"]}
               />
               <Grid mt="30px" templateColumns={{ md: "repeat(2, 1fr)" }} gap={[4, 8]}>
                 <VStack align="start" spacing={4}>
@@ -829,7 +829,8 @@ const FlippyLandingPage: NextPage = () => {
               src="/assets/flippy-banner-33.jpg"
               alt="$FLIPPY Logo with animated light switches"
               objectFit={["cover", "contain"]}
-              w="100%"
+              w={['unset', "100%"]}
+              h={['400px', 'unset']}
             />
           </Box>
         </AnimatedSection>
@@ -873,6 +874,8 @@ const FlippyLandingPage: NextPage = () => {
                 pb={'20px'}
                 textAlign="center"
                 color="blue.300"
+                maxWidth={['310px']}
+                mx={'auto'}
               >
                 Post something about $FLIPPY on X, tag @flippy589, and share it in our Telegram
               </Heading>
