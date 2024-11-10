@@ -305,6 +305,10 @@
   margin-bottom: 10px;
 }
 
+.no-tap-highlight {
+  -webkit-tap-highlight-color: transparent;
+}
+
 @media (max-width: 700px) {
   .card-body {
     transition: none;
