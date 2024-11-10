@@ -819,6 +819,31 @@ const FlippyLandingPage: NextPage = () => {
       */}
 
         <AnimatedSection>
+          <Box textAlign={'center'}>
+            <Heading
+              as="h2"
+              fontSize={["2xl", "3xl"]}
+              fontWeight="bold"
+              mt={'33px'}
+              mb={0}
+              textAlign="center"
+              color="blue.300"
+            >
+              1st Registered XRPL Coin On
+            </Heading>
+            <ChakraLink href="https://coinmarketcap.com/currencies/flippy-the-switch/" target="_blank">
+              <Image
+                src="/assets/cmc-logo-3.png"
+                alt="Coin market cap logo"
+                w={['300px']}
+                mx='auto'
+                mt={['10px','20px']}
+                mb={['23px', '33px']}
+                cursor={'pointer'}
+                className="no-tap-highlight"
+              />
+            </ChakraLink>
+          </Box>
          <Box
             as="section"
             id="flippy-logo"
