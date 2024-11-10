@@ -289,6 +289,22 @@
   transform: scale(1.033);
 }
 
+.masonry-container {
+  column-count: 4;
+  column-gap: 15px;
+}
+
+.masonry-item {
+  display: inline-block;
+  width: 100%;
+}
+
+.masonry-item img {
+  display: block;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
 @media (max-width: 700px) {
   .card-body {
     transition: none;
@@ -296,5 +312,10 @@
 
   .card-body:hover {
     transform: none;
+  }
+
+  .masonry-container {
+    column-count: 2;
+    column-gap: 15px;
   }
 }
