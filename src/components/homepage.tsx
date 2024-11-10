@@ -321,7 +321,7 @@ const ImageGalleryCarousel: React.FC = () => {
     <Box position="relative" width="full" overflow="hidden">
       <Flex
         transition="transform 500ms"
-        transform={`translateX(-${(currentIndex / images.length) * 100}%)`}
+        transform={`translateX(-${(currentIndex / 3) * 100}%)`}
         flexWrap="nowrap"
         w="100%"
       >
