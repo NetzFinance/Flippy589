@@ -43,7 +43,8 @@ import {
 import { FaX } from "react-icons/fa6";
 import { HiMenu } from "react-icons/hi";
 import { useInView } from "react-intersection-observer";
-import { HeroSection, colorOptions } from './HeroSection'
+import { HeroSection, colorOptions } from './HeroSection';
+import { MemeSection } from './MemeSection';
 
 // Sample data for the chart
 const data = [
@@ -320,7 +321,7 @@ const ImageGalleryCarousel: React.FC = () => {
     <Box position="relative" width="full" overflow="hidden">
       <Flex
         transition="transform 500ms"
-        transform={`translateX(-${(currentIndex / images.length) * 100}%)`}
+        transform={`translateX(-${(currentIndex / 3) * 100}%)`}
         flexWrap="nowrap"
         w="100%"
       >
@@ -1001,9 +1002,10 @@ const FlippyLandingPage: NextPage = () => {
                 textAlign="center"
                 color="blue.300"
               >
-                Meme Video Contest
+                Community Memes
               </Heading>
-              <Carousel items={videoLinks} />
+              <MemeSection />
+              {/* <Carousel items={videoLinks} /> */}
             </Container>
           </Box>
         </AnimatedSection>
