@@ -47,6 +47,7 @@ const memes = [
 	"/memes/meme-41.jpg",
 	"/memes/meme-43.jpg",
 	"/memes/meme-20.jpg",
+	"/memes/meme-46.gif",
 ]
 
 export const MemeSection = () => {
