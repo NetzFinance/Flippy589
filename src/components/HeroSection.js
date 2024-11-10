@@ -53,8 +53,7 @@ export const HeroSection = () => {
 	const [textIndex, setTextIndex] = useState(0)
 	const [colorIndex, setColorIndex] = useState(0)
 	const [colorCounter, setColorCounter] = useState(0)
-	const muteDefault = typeof localStorage != 'undefined' && localStorage.getItem('mute') == 'true'
-	const [mute, setMute] = useState(muteDefault)
+	const [mute, setMute] = useState(false)
 	
 	const text = textOptions[textIndex]
 	const color = colorOptions[colorIndex]
@@ -146,6 +145,9 @@ export const HeroSection = () => {
     // was seeing some weirdness before the css was loaded/ready
     // just give 250ms for stuff to load before displaying it
     setTimeout(() => { setLoading(false) }, 150)
+
+    const muteDefault = (typeof localStorage != 'undefined' && localStorage.getItem('mute') == 'true')
+    setMute(muteDefault)
 	}, [])
 	
 	useEffect(() => {
@@ -203,7 +205,6 @@ export const HeroSection = () => {
 			setColorIndex(0)
 		}
 	}, [textIndex])
-
 	
   return (
     <div class="white-bg">
