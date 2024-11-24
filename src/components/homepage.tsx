@@ -13,16 +13,7 @@ import {
   IconButton,
   Image,
   ListItem,
-  Modal,
-  ModalBody,
-  ModalCloseButton,
-  ModalContent,
-  ModalFooter,
-  ModalHeader,
-  ModalOverlay,
-  Stack,
   Text,
-  Tooltip,
   UnorderedList,
   VStack,
   useDisclosure,
@@ -32,19 +23,13 @@ import { motion, useAnimation } from "framer-motion";
 import { NextPage } from "next";
 import NextLink from "next/link";
 import React, { useCallback, useEffect, useState } from "react";
-import {
-  FaCheck,
-  FaChevronLeft,
-  FaChevronRight,
-  FaCoins,
-  FaCopy,
-  FaTelegramPlane,
-} from "react-icons/fa";
+import { FaChevronLeft, FaChevronRight, FaTelegramPlane } from "react-icons/fa";
 import { FaX } from "react-icons/fa6";
 import { HiMenu } from "react-icons/hi";
 import { useInView } from "react-intersection-observer";
-import { HeroSection, colorOptions } from './HeroSection';
-import { MemeSection } from './MemeSection';
+import { DexSection } from "./Dex";
+import { HeroSection, colorOptions } from "./HeroSection";
+import { MemeSection } from "./MemeSection";
 
 // Sample data for the chart
 const data = [
@@ -60,37 +45,37 @@ const reviews = [
     quote:
       "You should definitely check out $FLIPPY one of the most young and exciting xrp memecoin out there.",
     author: "WHALEDOT 🐋 鲸点",
-    link: 'https://x.com/whaledotcalls/status/1854901839839338865'
+    link: "https://x.com/whaledotcalls/status/1854901839839338865",
   },
   {
     quote:
       "$FLIPPY first coin listed on coinmarketcap. It has the lore and art that every other coin would be dying to have. It's a no-brainer.",
     author: "Kingo",
-    link: 'https://x.com/lonwoskeng/status/1854891108792406323'
+    link: "https://x.com/lonwoskeng/status/1854891108792406323",
   },
   {
     quote:
       "My top 3 coins with the best chances of success due to the quality of their memes are: $BERT ~ $KCUP ~ $FLIPPY. This is strictly based on art, originality, and how “memeable” they are.",
     author: "XRP Memes 💎",
-    link: 'https://x.com/eksrp123/status/1854781214411956726'
+    link: "https://x.com/eksrp123/status/1854781214411956726",
   },
   {
     quote:
       "$FLIPPY is running. I think I may have called another banger! Super bullish!!!! ",
     author: "Doctor Cryptoman",
-    link: 'https://x.com/Doctorcryptoman/status/1854319392491815357'
+    link: "https://x.com/Doctorcryptoman/status/1854319392491815357",
   },
   {
     quote:
       "Please check out at @CryptosRichboy $FLIPPY SATURDAY NIGHT LIVE!!! HOT XRP PLAY!!!",
     author: "K00LRav",
-    link: 'https://x.com/K00LRav/status/1852914894326108370'
+    link: "https://x.com/K00LRav/status/1852914894326108370",
   },
   {
     quote:
       "$FLIPPY is one of the few non-rug pools with fair launch and organic growth on the XRPL. \n$FLIPPY has the stars 🌟 in alignment for sure… have you flipped the switch yet? #XRP #memecoin",
     author: "BronzEmerald",
-    link: 'https://x.com/Bronz_Emerald/status/1852757827170783393'
+    link: "https://x.com/Bronz_Emerald/status/1852757827170783393",
   },
   {
     quote:
@@ -102,7 +87,7 @@ const reviews = [
       "$Flippy is an original meme that doesn't exists on any other chains that every $XRP holder can relate to - that flip of the switch moment! 💎",
     author: "SparkPlugger",
   },
-]
+];
 
 const AnimatedSection: React.FC<{ children: React.ReactNode }> = ({
   children,
@@ -490,7 +475,7 @@ const FlippyLandingPage: NextPage = () => {
   useEffect(() => {
     const timer = setInterval(() => {
       const newIndex = Math.floor(Math.random() * reviews.length);
-      setFlippyIndex(newIndex)
+      setFlippyIndex(newIndex);
     }, 2800);
     return () => clearInterval(timer);
   }, []);
@@ -739,11 +724,15 @@ const FlippyLandingPage: NextPage = () => {
                 objectFit="contain"
                 w={["calc(100% - 33px)", "400px"]}
               />
-              <Grid mt="30px" templateColumns={{ md: "repeat(2, 1fr)" }} gap={[4, 8]}>
+              <Grid
+                mt="30px"
+                templateColumns={{ md: "repeat(2, 1fr)" }}
+                gap={[4, 8]}
+              >
                 <VStack align="start" spacing={4}>
                   <Text color="blue.400" fontSize={["xl"]}>
-                    The Switch that doesn't turn off – the hero we
-                    didn't ask for, but the one we deserve.
+                    The Switch that doesn't turn off – the hero we didn't ask
+                    for, but the one we deserve.
                   </Text>
                   <Text color="blue.400" fontSize={["xl"]}>
                     $FLIPPY is an original meme coin in the XRPL ecosystem,
@@ -777,7 +766,9 @@ const FlippyLandingPage: NextPage = () => {
             </Container>
           </Box>
         </AnimatedSection>
-
+        <AnimatedSection>
+          <DexSection />
+        </AnimatedSection>
         {/*
         <AnimatedSection>
           <Box as="section" id="chart" py={16} bg="gray.900">
@@ -819,32 +810,35 @@ const FlippyLandingPage: NextPage = () => {
       */}
 
         <AnimatedSection>
-          <Box textAlign={'center'}>
+          <Box textAlign={"center"}>
             <Heading
               as="h2"
               fontSize={["2xl", "3xl"]}
               fontWeight="bold"
-              mt={'33px'}
+              mt={"33px"}
               mb={0}
               textAlign="center"
               color="blue.300"
             >
               1st Registered XRPL Coin On
             </Heading>
-            <ChakraLink href="https://coinmarketcap.com/currencies/flippy-the-switch/" target="_blank">
+            <ChakraLink
+              href="https://coinmarketcap.com/currencies/flippy-the-switch/"
+              target="_blank"
+            >
               <Image
                 src="/assets/cmc-logo-3.png"
                 alt="Coin market cap logo"
-                w={['300px']}
-                mx='auto'
-                mt={['10px','20px']}
-                mb={['23px', '33px']}
-                cursor={'pointer'}
+                w={["300px"]}
+                mx="auto"
+                mt={["10px", "20px"]}
+                mb={["23px", "33px"]}
+                cursor={"pointer"}
                 className="no-tap-highlight"
               />
             </ChakraLink>
           </Box>
-         <Box
+          <Box
             as="section"
             id="flippy-logo"
             position="relative"
@@ -855,8 +849,8 @@ const FlippyLandingPage: NextPage = () => {
               src="/assets/flippy-banner-33.jpg"
               alt="$FLIPPY Logo with animated light switches"
               objectFit={["cover", "contain"]}
-              w={['unset', "100%"]}
-              h={['400px', 'unset']}
+              w={["unset", "100%"]}
+              h={["400px", "unset"]}
             />
           </Box>
         </AnimatedSection>
@@ -868,8 +862,8 @@ const FlippyLandingPage: NextPage = () => {
                 as="h2"
                 fontSize={["2xl", "3xl"]}
                 fontWeight="bold"
-                pt={'30px'}
-                mb={'30px'}
+                pt={"30px"}
+                mb={"30px"}
                 textAlign="center"
                 color="blue.300"
               >
@@ -880,14 +874,19 @@ const FlippyLandingPage: NextPage = () => {
                 gap={8}
               >
                 {reviews.map((review, i) => (
-                  <ReviewCard key={i} review={review} index={i} flippyIndex={flippyIndex}  />
+                  <ReviewCard
+                    key={i}
+                    review={review}
+                    index={i}
+                    flippyIndex={flippyIndex}
+                  />
                 ))}
               </Grid>
               <Heading
                 as="h2"
                 fontSize={["2xl", "3xl"]}
                 fontWeight="bold"
-                mt={'50px'}
+                mt={"50px"}
                 textAlign="center"
                 color="blue.300"
               >
@@ -896,14 +895,15 @@ const FlippyLandingPage: NextPage = () => {
               <Heading
                 fontSize={["xl"]}
                 fontWeight="bold"
-                mt={'15px'}
-                pb={'20px'}
+                mt={"15px"}
+                pb={"20px"}
                 textAlign="center"
                 color="blue.300"
-                maxWidth={['310px']}
-                mx={'auto'}
+                maxWidth={["310px"]}
+                mx={"auto"}
               >
-                Post something about $FLIPPY on X, tag @flippy589, and share it in our Telegram
+                Post something about $FLIPPY on X, tag @flippy589, and share it
+                in our Telegram
               </Heading>
             </Container>
           </Box>
@@ -1148,8 +1148,8 @@ const FlippyLandingPage: NextPage = () => {
   );
 };
 
-const ReviewCard = ({review, index, flippyIndex}: any) => {
-  return(
+const ReviewCard = ({ review, index, flippyIndex }: any) => {
+  return (
     <Card
       bgGradient="linear(to-br, blue.50, yellow.50)"
       position="relative"
@@ -1157,7 +1157,7 @@ const ReviewCard = ({review, index, flippyIndex}: any) => {
       alignContent={"space-between"}
       onClick={() => {
         if (review.link) {
-          window?.open(review.link, '_blank')?.focus();
+          window?.open(review.link, "_blank")?.focus();
         }
       }}
       className="card-body"
@@ -1168,28 +1168,28 @@ const ReviewCard = ({review, index, flippyIndex}: any) => {
         alignContent={"space-between"}
         style={{
           background: `#${colorOptions[index]}44`,
-          borderRadius: '0.375rem',
-          cursor: review.link ? 'pointer' : 'normal'
+          borderRadius: "0.375rem",
+          cursor: review.link ? "pointer" : "normal",
         }}
-      >  
-      {/* color: #2e384d; */}
-        <Text color="#2e384d" mb={4} pb={4} maxWidth={['80%', '90%']}>
+      >
+        {/* color: #2e384d; */}
+        <Text color="#2e384d" mb={4} pb={4} maxWidth={["80%", "90%"]}>
           "{review.quote}"
         </Text>
         <Text
-        fontWeight="bold"
-        color="#2e384d"
-        position={['relative', 'absolute']}
-        left={[0, '24px']}
-        bottom={[0, 5]}
+          fontWeight="bold"
+          color="#2e384d"
+          position={["relative", "absolute"]}
+          left={[0, "24px"]}
+          bottom={[0, 5]}
         >
           {review.author}
         </Text>
-        {
-          index == flippyIndex &&
+        {index == flippyIndex && (
           <Box
             position="absolute"
-            bottom={3} right={3}
+            bottom={3}
+            right={3}
             className="flippy-gif-small"
           >
             <Image
@@ -1199,10 +1199,10 @@ const ReviewCard = ({review, index, flippyIndex}: any) => {
               objectFit="cover"
             />
           </Box>
-        }
+        )}
       </CardBody>
     </Card>
-  )
-}
+  );
+};
 
 export default FlippyLandingPage;
