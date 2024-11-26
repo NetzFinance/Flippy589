@@ -47,7 +47,7 @@ const links: LinkItem[] = [
       "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/1-Gnq5QYPIdqa7yhaIG114gpyEEduQAZ.png",
   },
   {
-    url: "https://dexscreener.com/",
+    url: "https://dexscreener.com/xrpl/24464c4950505900000000000000000000000000.rsenfmelvj92orrcktkdtug53mzwsb7zbd_xrp",
     label: "DexScreener",
     image:
       "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/XRP%20DEX%20Logos-JXhbJLmao8UNGSOp3s5fiE3eFrsWbC.png",
