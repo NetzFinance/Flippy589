@@ -30,6 +30,7 @@ import { useInView } from "react-intersection-observer";
 import { DexSection } from "./Dex";
 import { HeroSection, colorOptions } from "./HeroSection";
 import { MemeSection } from "./MemeSection";
+import { DonationWallet } from "./donate";
 
 // Sample data for the chart
 const data = [
@@ -853,6 +854,10 @@ const FlippyLandingPage: NextPage = () => {
               h={["400px", "unset"]}
             />
           </Box>
+        </AnimatedSection>
+
+        <AnimatedSection>
+          <DonationWallet />
         </AnimatedSection>
 
         <AnimatedSection>
