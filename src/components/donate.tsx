@@ -1,45 +1,90 @@
-import Image from "next/image";
-import { Button } from "@/components/ui/button";
-import { ClipboardCopyIcon } from "@heroicons/react/outline";
+"use client";
+
+import { useState } from "react";
+import {
+  Box,
+  VStack,
+  Heading,
+  Text,
+  Image,
+  HStack,
+  Button,
+  useClipboard,
+  useToast,
+  useColorModeValue,
+} from "@chakra-ui/react";
+import { CopyIcon } from "@chakra-ui/icons";
 
 export function DonationWallet() {
   const walletAddress = "rffrYBmuCAGvAWhSNvuJ48pXZ7nCqTuveV";
+  const { onCopy } = useClipboard(walletAddress);
+  const toast = useToast();
 
   const handleCopy = () => {
-    navigator.clipboard.writeText(walletAddress);
-    alert("Wallet address copied to clipboard!");
+    onCopy();
+    toast({
+      title: "Copied!",
+      description: "Wallet address copied to clipboard!",
+      status: "success",
+      duration: 2000,
+      isClosable: true,
+    });
   };
 
+  const bg = useColorModeValue("gray.100", "gray.700");
+  const textColor = useColorModeValue("gray.900", "white");
+  const subTextColor = useColorModeValue("gray.700", "gray.300");
+  const buttonBg = useColorModeValue("gray.200", "gray.600");
+  const buttonHoverBg = useColorModeValue("gray.300", "gray.500");
+
   return (
-    <div className="flex flex-col items-center p-6 bg-gray-100 dark:bg-gray-800 rounded-lg shadow-md">
-      <h2 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">
-        Support the Flippy589 Project
-      </h2>
-      <p className="text-sm text-gray-700 dark:text-gray-300 mb-6 text-center">
-        This is a donation wallet used to expand the Flippy589 project. Thank you for your support!
-      </p>
-      <div className="mb-6">
-        <Image
-          src="/qr_code_rffrYBmuCAGvAWhSNvuJ48pXZ7nCqTuveV.png"
-          alt="Donation Wallet QR Code"
-          width={200}
-          height={200}
-          className="rounded-md"
-        />
-      </div>
-      <div className="flex items-center space-x-4">
-        <span className="text-sm text-gray-600 dark:text-gray-400 font-mono break-all">
-          {walletAddress}
-        </span>
-        <Button
-          variant="outline"
-          onClick={handleCopy}
-          className="flex items-center space-x-2 border-gray-500 dark:border-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700"
-        >
-          <ClipboardCopyIcon className="h-5 w-5" />
-          <span>Copy</span>
-        </Button>
-      </div>
-    </div>
+    <Box
+      bg={bg}
+      p={6}
+      borderRadius="lg"
+      boxShadow="md"
+      display="flex"
+      flexDirection="column"
+      alignItems="center"
+    >
+      <VStack spacing={4} align="center">
+        <Heading as="h2" size="md" color={textColor}>
+          Support the Flippy589 Project
+        </Heading>
+        <Text fontSize="sm" color={subTextColor} textAlign="center">
+          This is a donation wallet used to expand the Flippy589 project. Thank
+          you for your support!
+        </Text>
+        <Box mb={6}>
+          <Image
+            src="/qr_code_rffrYBmuCAGvAWhSNvuJ48pXZ7nCqTuveV.png"
+            alt="Donation Wallet QR Code"
+            width={200}
+            height={200}
+            borderRadius="md"
+          />
+        </Box>
+        <HStack spacing={4}>
+          <Text
+            fontSize="sm"
+            color={subTextColor}
+            fontFamily="mono"
+            wordBreak="break-all"
+          >
+            {walletAddress}
+          </Text>
+          <Button
+            leftIcon={<CopyIcon />}
+            onClick={handleCopy}
+            variant="outline"
+            size="sm"
+            bg={buttonBg}
+            _hover={{ bg: buttonHoverBg }}
+          >
+            Copy
+          </Button>
+        </HStack>
+      </VStack>
+    </Box>
   );
 }
